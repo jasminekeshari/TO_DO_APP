@@ -58,7 +58,7 @@ useEffect(()=>{
     
 
   return (
-    <div style={{border: "20px solid yellow", padding:"50px"}}>
+    <div style={{border: "20px solid black", padding:"50px"}}>
       <h1>ADD Todo's</h1>
       <div>
         <input value={title} type="text" placeholder="Enter the task" onChange={(e)=>setTitle(e.target.value)} style={{padding:"8px", }}></input>

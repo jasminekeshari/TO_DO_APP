@@ -58,27 +58,31 @@ useEffect(()=>{
     
 
   return (
-    <div style={{border: "20px solid black", padding:"50px"}}>
-      <h1>ADD Todo's</h1>
-      <div>
-        <input value={title} type="text" placeholder="Enter the task" onChange={(e)=>setTitle(e.target.value)} style={{padding:"8px", }}></input>
+    <div style={{border: " ", padding:"20px"}}>
+      <h1>TO-DO-APP📝</h1>
+      <hr/>
+      <h2 style={{color:"green"}}>ADD YOUR TASK HERE</h2>
+      <div style={{border:"", padding:"10px"}}>
+        <input value={title} type="text" placeholder="Enter the task..." onChange={(e)=>setTitle(e.target.value)} style={{padding:"8px",height:"20px", width:"250px"}}></input>
         <button style={{backgroundColor:"lightGreen"}} onClick={addTodo}>ADD</button>
       </div>
-      <h1>TO-DO-LIST</h1>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"20px"}}>
+      <br/>
+      <hr/>
+      <h2>YOUR TO-DO-LIST📃</h2>
+      <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"20px",padding:"20px", margin:"0px"}}>
       {todos.map((todo)=>(
         <div key={todo.id} style={{border:"1px solid black"}}> 
-          <h2>{todo.title}</h2>
+          <h2>🎯{todo.title}</h2>
 
           {editID==todo.id && <input type='text' value={updatedTitle} onChange={(e)=> setUpdatedTitle(e.target.value)} />}
 
-          <p>{todo.completed?"Completed":"Incomplete"}</p>
-          <button onClick={()=>handleToggle(todo.id , todo.completed)}>{todo.completed?"Mark Incomplete": "Mark complete"}</button>
+          <p style={{color:todo.completed?"green":"red"}}>{todo.completed?"Completed✅":"Incomplete❌"}</p>
+          <button style={{border:"3px solid yellow"}} onClick={()=>handleToggle(todo.id , todo.completed)}>{todo.completed?"Mark-Incomplete": "Mark-Complete"}</button>
           <button style={{backgroundColor:"teal", color:"white", margin:"10px"}} onClick={()=>handleDelete(todo.id)}><Trash2 style={{ }}/></button>
 
           {editID==todo.id?
            (<button onClick={()=>handleUpdate(todo.id)} >Save</button>):
-           (<button onClick={()=> {setEditId(todo.id); setUpdatedTitle(todo.title)}}>Edit</button>)}
+           (<button  style={{border:"0.5px solid grey"}} onClick={()=> {setEditId(todo.id); setUpdatedTitle(todo.title)}}>Edit🖋️</button>)}
 
         </div>
       ))}

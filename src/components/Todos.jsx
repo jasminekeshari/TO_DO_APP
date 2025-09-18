@@ -68,10 +68,10 @@ useEffect(()=>{
       </div>
       <br/>
       <hr/>
-      <h2>YOUR TO-DO-LIST📃</h2>
-      <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"20px",padding:"20px", margin:"0px"}}>
+      <h2 style={{textDecorationLine:"underline"}} >YOUR TO-DO-LIST📃</h2>
+      <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"20px",padding:"", margin:"px"}}>
       {todos.map((todo)=>(
-        <div key={todo.id} style={{border:"1px solid black"}}> 
+        <div key={todo.id} style={{border:"1px solid black",padding:"18px",margin:"8px"}}> 
           <h2>🎯{todo.title}</h2>
 
           {editID==todo.id && <input type='text' value={updatedTitle} onChange={(e)=> setUpdatedTitle(e.target.value)} />}
